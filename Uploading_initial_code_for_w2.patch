@@ -1,0 +1,15 @@
+Index: src/shape/Main.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/shape/Main.java	(date 1548536270000)
++++ src/shape/Main.java	(date 1548538176000)
+@@ -23,7 +23,6 @@
+ 
+                 else if (tokens[0].equals("Rectangle") && tokens.length == 3)
+                     shapes.add(new Rectangle(Double.valueOf(tokens[1]), Double.valueOf(tokens[2])));
+-
+             }
+         } catch (IOException e) {
+             e.printStackTrace();

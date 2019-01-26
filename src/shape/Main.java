@@ -23,7 +23,6 @@ public class Main {
 
                 else if (tokens[0].equals("Rectangle") && tokens.length == 3)
                     shapes.add(new Rectangle(Double.valueOf(tokens[1]), Double.valueOf(tokens[2])));
-
             }
         } catch (IOException e) {
             e.printStackTrace();
