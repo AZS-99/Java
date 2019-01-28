@@ -15,5 +15,4 @@ public class Node<T> {
         Node n = new Node(10);
         System.out.println(n);
     }
-
 }
