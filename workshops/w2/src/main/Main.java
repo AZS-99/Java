@@ -1,7 +1,8 @@
-package shape;
+package main;
+
+import shape.*;
 
 import java.io.*;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class Main {
@@ -31,6 +32,4 @@ public class Main {
         for (var shape : shapes)
             System.out.println(shape);
     }
-
-
 }
