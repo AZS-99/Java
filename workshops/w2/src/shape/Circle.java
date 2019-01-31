@@ -17,6 +17,6 @@ public class Circle implements Shape {
 
 
     public double getPerimeter() {
-        return 2 * PI * this.radius;
+        return Math.round(2 * PI * this.radius * 1000)/1000;
     }
 }

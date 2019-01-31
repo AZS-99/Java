@@ -7,6 +7,9 @@ import java.util.ArrayList;
 
 public class Main {
     public static void main(String args[]) {
+        System.out.println("------->JAC 444 Assignment 1<-------");
+        System.out.println("------->Task 1 ... <-------");
+
         ArrayList<Shape> shapes = new ArrayList<>();
         String s;
 
@@ -24,10 +27,19 @@ public class Main {
 
                 else if (tokens[0].equals("Rectangle") && tokens.length == 3)
                     shapes.add(new Rectangle(Double.valueOf(tokens[1]), Double.valueOf(tokens[2])));
+
+                else if (tokens[0].equals("Circle") && tokens.length == 2)
+                    shapes.add(new Circle(Double.valueOf(tokens[1])));
+
+                else if (tokens[0].equals("Parallelogram") && tokens.length == 3)
+                    shapes.add(new Parallelogram(Double.valueOf(tokens[1]), Double.valueOf(tokens[2])));
+
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        System.out.println(shapes.size() + " shapes were created!\n");
 
         for (var shape : shapes)
             System.out.println(shape);

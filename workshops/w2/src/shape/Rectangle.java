@@ -15,6 +15,6 @@ public class Rectangle implements Shape {
     }
 
     public double getPerimeter() {
-        return 2 * (length + width);
+        return Math.round(2 * (length + width) * 1000)/1000;
     }
 }

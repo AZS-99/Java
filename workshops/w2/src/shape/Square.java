@@ -15,7 +15,7 @@ public class Square implements Shape {
 
 
     public double getPerimeter() {
-        return sideLength * 4;
+        return Math.round(sideLength * 4 *1000)/1000;
     }
 
 

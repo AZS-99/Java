@@ -1,9 +1,9 @@
 package shape;
 
 public class Triangle implements Shape {
-    double base, y, z;
+    double x, y, z;
     public Triangle(double x, double y, double z) {
-        this.base = x;
+        this.x = x;
         this.y = y;
         this.z = z;
     }
@@ -11,11 +11,13 @@ public class Triangle implements Shape {
 
     @Override
     public String toString() {
-        return "Triangle with dimensions: base " + base + " y: " + this.y + " z: " + this.z;
+        String str = "Triangle {s1=" + x + ", s2=" + this.y + ", s3=" + this.z + "}";
+        str += " perimeter = " + getPerimeter();
+        return str;
     }
 
 
     public double getPerimeter() {
-        return  base + y + z;
+        return  Math.round((x + y + z) * 1000)/1000;
     }
 }
