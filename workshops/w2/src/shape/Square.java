@@ -3,19 +3,24 @@ package shape;
 public class Square implements Shape {
     private double sideLength;
 
-    public Square(double sideLength) {
+    public Square(double sideLength) throws NonPositiveValueException {
+        if (sideLength < 0)
+            throw new NonPositiveValueException("Invalid Side!");
         this.sideLength = sideLength;
     }
 
 
     @Override
     public String toString() {
-        return "Square {s = " + this.sideLength + "} perimeter = " + this.getPerimeter();
+
+        String str = "Square {s = " + this.sideLength + "} perimeter = ";
+        String perimeter = String.format("%.5f", getPerimeter());
+        return str + perimeter;
     }
 
 
     public double getPerimeter() {
-        return Math.round(sideLength * 4 *1000)/1000;
+        return Math.round(sideLength * 4.0 *100000.0)/100000.0;
     }
 
 

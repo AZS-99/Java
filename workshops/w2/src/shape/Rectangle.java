@@ -3,7 +3,9 @@ package shape;
 public class Rectangle implements Shape {
     private double length, width;
 
-    public Rectangle(double length, double width) {
+    public Rectangle(double length, double width) throws NonPositiveValueException{
+        if (length < 0 || width < 0)
+            throw new NonPositiveValueException("Invalid Side!");
         this.length = length;
         this.width = width;
     }
@@ -11,10 +13,12 @@ public class Rectangle implements Shape {
 
     @Override
     public String toString() {
-        return "Square {l = " + length + ", width = " + width + "} perimeter = " + getPerimeter();
+        String str = "Rectangle {l = " + length + ", width = " + width + "} perimeter = ";
+        String perimeter = String.format("%.5f", getPerimeter());
+        return str + perimeter;
     }
 
     public double getPerimeter() {
-        return Math.round(2 * (length + width) * 1000)/1000;
+        return Math.round(2 * (length + width) * 100000.0)/100000.0;
     }
 }

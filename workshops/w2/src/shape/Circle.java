@@ -5,18 +5,23 @@ import static java.lang.Math.PI;
 public class Circle implements Shape {
     private double radius;
 
-    public Circle(double radius) {
+    public Circle(double radius) throws NonPositiveValueException {
+        if (radius < 0)
+            throw new NonPositiveValueException("Invalid Radius!");
         this.radius = radius;
     }
 
 
     @Override
     public String toString() {
-        return "Circle {r = " + this.radius + "} perimeter = " + getPerimeter();
+
+        String str = "Circle {r = " + this.radius + "} perimeter = ";
+        String perimeter = String.format("%.5f", getPerimeter());
+        return str + perimeter;
     }
 
 
     public double getPerimeter() {
-        return Math.round(2 * PI * this.radius * 1000)/1000;
+        return Math.round(2 * PI * this.radius * 100000.0)/100000.0;
     }
 }
