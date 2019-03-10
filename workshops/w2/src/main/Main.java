@@ -3,14 +3,15 @@ package main;
 import shape.*;
 
 import java.io.*;
-import java.util.ArrayList;
+import java.util.*;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 public class Main {
     public static void main(String args[]) {
         System.out.println("------->JAC 444 Assignment 1<-------");
         System.out.println("------->Task 1 ... <-------");
 
-        ArrayList<Shape> shapes = new ArrayList<>();
+        List<Shape> shapes = new CopyOnWriteArrayList<>();
         String s;
 
         try {
@@ -74,10 +75,55 @@ public class Main {
         }
 
         System.out.println();
-
         System.out.println(shapes.size() + " shapes were created!:");
+
+
+        //task 2
 
         for (var shape : shapes)
             System.out.println(shape + "\n");
+
+
+
+
+        System.out.println("------->Task 2 ... <-------");
+        double maxCirclePerimeter = 0;
+        double minTrianglePerimeter = Double.POSITIVE_INFINITY;
+
+
+        for (var shape : shapes) {
+            if (shape instanceof  Circle && shape.getPerimeter() > maxCirclePerimeter)
+                maxCirclePerimeter = shape.getPerimeter();
+            else if (shape instanceof  Triangle && shape.getPerimeter() < minTrianglePerimeter)
+                minTrianglePerimeter = shape.getPerimeter();
+        }
+
+        for (var shape : shapes) {
+            if (!(shape instanceof Circle || shape instanceof Triangle))
+                System.out.println(shape + "\n");
+            else if (shape instanceof Circle && shape.getPerimeter() != maxCirclePerimeter)
+                System.out.println(shape + "\n");
+            else if (shape instanceof  Triangle && shape.getPerimeter() != minTrianglePerimeter)
+                System.out.println(shape + "\n");
+            else
+                shapes.remove(shape);
+        }
+
+
+        //task 3
+        System.out.println("------->Task 3 ... <-------");
+        double paralleloTotal = 0;
+        double triangleTotal = 0;
+
+        for (var shape : shapes) {
+            if (shape instanceof Parallelogram)
+                paralleloTotal += shape.getPerimeter();
+            else if (shape instanceof Triangle)
+                triangleTotal += shape.getPerimeter();
+        }
+
+        System.out.println("Total perimeter of Parallelogram is: " + paralleloTotal);
+        System.out.println("Total perimeter of Triangle is: " + triangleTotal);
+
     }
 }
