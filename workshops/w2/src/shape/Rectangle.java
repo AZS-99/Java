@@ -1,6 +1,6 @@
 package shape;
 
-public class Rectangle extends Square implements Shape {
+public class Rectangle extends Square implements Shape, Area {
 
 
     private double width;
@@ -17,7 +17,8 @@ public class Rectangle extends Square implements Shape {
     public String toString() {
         String str = "Rectangle {l = " + super.getLength() + ", width = " + width + "} perimeter = ";
         String perimeter = String.format("%.5f", getPerimeter());
-        return str + perimeter;
+        str += perimeter + ", Area = ";
+        return str + String.format("%.4f", getArea());
     }
 
     public double getPerimeter() {
@@ -26,5 +27,12 @@ public class Rectangle extends Square implements Shape {
 
     public double getWidth() {
         return width;
+    }
+
+    Area area = () -> this.width * this.getLength();
+
+    @Override
+    public double getArea() {
+        return area.getArea();
     }
 }

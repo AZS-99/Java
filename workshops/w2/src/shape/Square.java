@@ -1,6 +1,6 @@
 package shape;
 
-public class Square implements Shape {
+public class Square implements Shape, Area {
     private double length;
 
     public Square(double length) throws NonPositiveValueException {
@@ -15,7 +15,8 @@ public class Square implements Shape {
 
         String str = "Square {s = " + this.length + "} perimeter = ";
         String perimeter = String.format("%.5f", getPerimeter());
-        return str + perimeter;
+        str += perimeter + ", Area = ";
+        return str + String.format("%.4f", getArea());
     }
 
 
@@ -28,5 +29,10 @@ public class Square implements Shape {
         return Math.round(length * 4.0 *100000.0)/100000.0;
     }
 
+    Area area = () -> this.length * this.length;
 
+    @Override
+    public double getArea() {
+        return area.getArea();
+    }
 }

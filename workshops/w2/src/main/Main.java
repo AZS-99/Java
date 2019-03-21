@@ -125,5 +125,8 @@ public class Main {
         System.out.println("Total perimeter of Parallelogram is: " + paralleloTotal);
         System.out.println("Total perimeter of Triangle is: " + triangleTotal);
 
+
+        //task 4
+
     }
 }
